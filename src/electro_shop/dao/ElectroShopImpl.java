@@ -1,7 +1,9 @@
-package home_work_26.electro_shop.dao;
+package electro_shop.dao;
 
-import home_work_26.electro_shop.model.Computer;
-import home_work_26.electro_shop.model.Device;
+import electro_shop.model.Device;
+
+import java.util.Arrays;
+import java.util.function.Predicate;
 
 public class ElectroShopImpl implements ElectroShop{
 
@@ -36,6 +38,15 @@ public class ElectroShopImpl implements ElectroShop{
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ElectroShopImpl{");
+        sb.append("devices=").append(Arrays.toString(devices));
+        sb.append(", size=").append(size);
+        sb.append('}');
+        return sb.toString();
     }
 
     // удалить електроприбор
@@ -92,7 +103,7 @@ public class ElectroShopImpl implements ElectroShop{
         }
         return sum;
     }
-    /*
+
     private Device[] findCarByPredicate(Predicate<Device> predicate){
         int count = 0;
         for (int i = 0; i < size; i++) {
@@ -100,7 +111,7 @@ public class ElectroShopImpl implements ElectroShop{
                 count++;
             }
         }
-        Device[] res = new Device[][count];
+        Device[] res = new Device[count];
         for (int i = 0, j = 0 ; j < res.length; i++) {
             if(predicate.test(devices[i])){
                 res[j++] = devices[i];
@@ -108,7 +119,7 @@ public class ElectroShopImpl implements ElectroShop{
         }
         return res;
     }
-     */
+
     @Override
     public Device[] findDevicesByModel(String model) {
         return new Device[0];

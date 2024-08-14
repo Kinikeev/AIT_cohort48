@@ -1,4 +1,4 @@
-package home_work_26.electro_shop.model;
+package electro_shop.model;
 
 public class SmartPhon extends Device {
 

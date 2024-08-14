@@ -39,10 +39,11 @@ class CompanyImplTest {
 
     @Test
     void updateEmployee() {
-        Employee worker = new Worker(2000, "Anne", "Müller", 160, 28);
+        Employee worker = new Worker(2000, "Anne", "Change", 160, 28);
         assertEquals(firma[1], company.updateEmployee(worker));
         worker = new Worker(6000, "Anne", "Müller", 160, 28);
         assertNull(company.updateEmployee(worker));
+        printEmployee();
     }
 
     @Test

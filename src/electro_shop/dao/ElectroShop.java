@@ -1,6 +1,6 @@
-package home_work_26.electro_shop.dao;
+package electro_shop.dao;
 
-import home_work_26.electro_shop.model.Device;
+import electro_shop.model.Device;
 
 public interface ElectroShop {
 
