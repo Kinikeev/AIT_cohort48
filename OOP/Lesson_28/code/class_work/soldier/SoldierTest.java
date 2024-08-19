@@ -78,15 +78,15 @@ class SoldierTest {
             @Override
             public int compare(Soldier s1, Soldier s2) {
 
-                return s1.getHeight() - s2.getHeight();
+                return s1.getProfile() - s2.getProfile();
             }
         };
         printArray(soldiers);
 
 
 
-        Soldier pattern = new Soldier(null,175,0,0);
-        int index = Arrays.binarySearch(soldiers,pattern);
+        Soldier pattern = new Soldier(null,0,0,70);
+        int index = Arrays.binarySearch(soldiers,pattern, (s1,s2) -> s1.getProfile() - s2.getProfile());
         System.out.println(index);
     }
 

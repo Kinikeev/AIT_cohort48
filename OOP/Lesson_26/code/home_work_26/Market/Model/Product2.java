@@ -14,7 +14,10 @@ public class Product2 {
     // check barCode
     public long checkCode(long barCode){
         String code = "" + barCode;
-        return code.length() == CODE_LENGTH ? barCode : -1;
+        if (code.length() == CODE_LENGTH){
+            return barCode;
+        }
+        return -1;
     }
 
     // constructor
@@ -47,8 +50,8 @@ public class Product2 {
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
-        if (!(object instanceof Product2 product2)) return false;
-        return barCode == product2.barCode;
+        if (!(object instanceof Product2 product)) return false;
+        return barCode == product.barCode;
     }
 
     @Override

@@ -9,7 +9,12 @@ public class OddEvenComparator implements Comparator<Integer> {
         // Сначала проверяем, являются ли числа четными или нечетными
         if (o1 % 2 == 0 && o2 % 2 != 0) {
             return -1; // o1 четное, o2 нечетное
-        } else if (o1 % 2 != 0 && o2 % 2 == 0) {
+
+        }
+        else if (o1 % 2 == 0 && o2 % 2 == 0){
+            return -1; // оба чётные
+        }
+        else if (o1 % 2 != 0 && o2 % 2 == 0) {
             return 1; // o1 нечетное, o2 четное
         } else {
             return 0; // оба числа четные или оба нечетные, порядок не важен
