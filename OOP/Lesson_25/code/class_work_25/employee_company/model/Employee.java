@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public abstract class Employee {
 
+    // для создания полей в абстрактном классе рекомендуется использовать protected
+
     // fields:
     protected static double minWage = 13;
     protected final int id;

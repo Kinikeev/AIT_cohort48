@@ -1,6 +1,9 @@
 package class_work_24.employee_company.dao;
 
 import class_work_24.employee_company.model.Employee;
+// абстрактные классы - полезны для НАСЛЕДОВАНИЯ, невозможно СОЗДАВАТЬ ОБЪЕКТЫ на их основе,
+// для создания полей в абстрактном классе рекомендуется использовать protected
+//абстрактные методы - не содержат ТЕЛА, имеется только СИГНАТУРА
 
 public interface Company {
 

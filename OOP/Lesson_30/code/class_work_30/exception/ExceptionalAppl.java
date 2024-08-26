@@ -12,7 +12,7 @@ public class ExceptionalAppl {
         } catch (NoSolutionException e) {
             System.out.println("No solution");
         } catch (SolutionAnyNumberException e) {
-//            e.printStackTrace();
+            //  e.printStackTrace();
             System.out.println("Solution any number");
             return;
         }  finally {
