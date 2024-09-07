@@ -35,7 +35,6 @@ public class CompanyImpl implements Company {
                 return employee;
             }
         }
-
         return null;
     }
 
