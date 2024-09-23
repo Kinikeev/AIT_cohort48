@@ -3,6 +3,8 @@ package class_work_34.complexity.i_list.model;
 // зададим абстрактные методы для работы со структурой данных "лист/list" (список чего-то),
 // для любых типов данных Integer, String, StringBuilder, Employee, Car, Pet, Photo, Book ...
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public interface IList<E> extends Iterable<E> {
@@ -35,5 +37,7 @@ public interface IList<E> extends Iterable<E> {
     E set (int index, E element);
     int indexOf (Object o);
     int lastIndexOf (Object o);
+
+    List<Double> listOfWight = new ArrayList<>();
 
 }

@@ -55,27 +55,73 @@ public class IListImpl<E> implements IList<E> {
 
     @Override
     public boolean add(int index, E element) {
-        return false;
+        if (index == size){   // добавляем в конец списка
+            add(element);
+            return true;
+        }
+        // добавляем в середину списка
+        checkIndex(index);
+        ensureCapacity();  // проверка возможности вставки
+        System.arraycopy(elements,index,elements,index + 1,size++ - index); // раздвинули массив на 1 позицию
+        elements[size] = element;
+        return true;
+    }
+
+    private void checkIndex( int index){
+        // индекс не может быть отрицательным или больше, чем size
+        if (index < 0 || index > size){
+            throw new IndexOutOfBoundsException("Wrong index: " + index);
+        }
     }
 
     @Override
     public E remove(int index) {
-        return null;
+        checkIndex(index);
+        // ищем элемент списка
+        E el = (E) elements[index];
+        // удаляем элемент
+        System.arraycopy(elements, index + 1, elements, index, --size - index);
+        elements[size] = null;
+        return el;
     }
+    //    После выполнения System.arraycopy, когда элементы сдвигаются на одну позицию назад,
+//    последний элемент становится дублированным на предпоследней позиции.
+//    Затирание последнего элемента elements[size] = null; выполняется для очистки этой дублированной позиции,
+//    иначе в списке может остаться ссылка на ненужный объект, что может вызвать утечку памяти.
+//    Этот шаг необходим для правильной работы списка и предотвращения утечек памяти. В Java объекты не удаляются
+//    сразу после вызова remove, и сборка мусора может произойти позже. Поэтому затирание последнего элемента является
+//    хорошей практикой для избежания утечек памяти.
 
     @Override
     public E get(int index) {
-        return null;
+        checkIndex(index);
+        return (E) elements[index] ;
     }
 
     @Override
     public E set(int index, E element) {
-        return null;
+        checkIndex(index);
+        E victim = (E) elements[index];
+        elements[index] = element;
+        return victim;
     }
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        if(o != null) { // если o не null
+            for (int i = 0; i < size; i++) {
+                if(elements[i].equals(o)){
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if(null == elements[i]){
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     @Override

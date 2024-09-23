@@ -5,13 +5,14 @@ package home_work_34;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {
 
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        List<Integer> arrayList = new ArrayList<>();
         for (int i = 0; i < 20 ; i++) {
-            int random =  (int) (Math.random() * 21);
+            int random =  (int) (Math.random() * 21); // (b - a + 1) + a = 21
             arrayList.add(random);
         }
         System.out.println("Список с дубликатами: " + arrayList);
