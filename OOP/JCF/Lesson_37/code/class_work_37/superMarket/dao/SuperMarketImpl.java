@@ -21,16 +21,27 @@ public class SuperMarketImpl implements SuperMarket {
 
     @Override
     public boolean addProduct(Product product) {
-        return false;
+        if (product == null || products.contains(product)){
+            return false;
+        }
+        products.add(product);
+        return true;
     }
 
     @Override
     public Product removeProduct(long barCode) {
-        return null;
+        Product product = findByBarcode(barCode);
+        products.remove(product);
+        return product;
     }
 
     @Override
     public Product findByBarcode(long barCode) {
+        for (Product p : products){
+            if (p.getBarCode() == barCode){
+                return p;
+            }
+        }
         return null;
     }
 

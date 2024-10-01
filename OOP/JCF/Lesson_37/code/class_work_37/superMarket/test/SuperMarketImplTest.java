@@ -57,12 +57,13 @@ class SuperMarketImplTest {
     @Test
     void addProduct() {
         // 8. проверяем, заполнился ли массив продуктов
-        //printArray(products);
+        printArray(products);
         // 10. тестируем этот метод
         assertFalse(myMarket.addProduct(null));
         assertFalse(myMarket.addProduct(products[3]));
         Product product1 = new Product(666666, "Sweet Buns", "Bread", "Kolosok", 18.3, now.minusDays(25));
         assertTrue(myMarket.addProduct(product1));
+        myMarket.addProduct(product1);
         assertEquals(6, myMarket.skuQuantity());
         Product product2 = new Product(666666, "Sweet Buns", "Bread", "Kolosok", 18.3, now.minusDays(25));
         assertFalse(myMarket.addProduct(product2)); // с одинаковым баркодом

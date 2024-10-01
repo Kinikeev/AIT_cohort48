@@ -48,7 +48,7 @@ public class ISetImpl<E> implements ISet<E> {
     }
 
     private void rebuildArray(){  //
-        capacity = capacity << 1; //увеличили capacity в 2 раза
+        capacity = capacity << 1; //увеличили capacity в 2 раза (операция побитогого сдвига)
         LinkedList<E>[] newHashset = new LinkedList[capacity];
         // надо обежать весь hashSet, залезть в каждый его LinkedList, переложить элементы в новый
         for (int i = 0; i < hashSet.length; i++) {
